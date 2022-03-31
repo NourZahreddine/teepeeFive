@@ -1,0 +1,17 @@
+﻿  AbsCatalogComponent.cpp
+  AbsIngredient.cpp
+  AbsProduct.cpp
+  AbsRecipeComponent.cpp
+  AbsStep.cpp
+  Catalog.cpp
+  Category.cpp
+  CompositeStep.cpp
+  Ingredient.cpp
+  Recipe.cpp
+  RecipeBook.cpp
+  Recipes.cpp
+  SingleStep.cpp
+  UnitProduct.cpp
+  WeighedProduct.cpp
+  Generating Code...
+  Recipes.vcxproj -> \\Mac\Home\Downloads\Tp5CodeDepart-2\x64\Debug\Recipes.exe

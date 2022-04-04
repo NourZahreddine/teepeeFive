@@ -1,17 +1,5 @@
-﻿  AbsCatalogComponent.cpp
-  AbsIngredient.cpp
-  AbsProduct.cpp
-  AbsRecipeComponent.cpp
-  AbsStep.cpp
-  Catalog.cpp
-  Category.cpp
+﻿  Category.cpp
   CompositeStep.cpp
-  Ingredient.cpp
-  Recipe.cpp
-  RecipeBook.cpp
-  Recipes.cpp
-  SingleStep.cpp
-  UnitProduct.cpp
-  WeighedProduct.cpp
+C:\Users\banna\Documents\teepeeFive\Tp5CodeDepart-2\Recipes\CompositeStep.cpp(21,18): warning C4101: 'step': unreferenced local variable
   Generating Code...
-  Recipes.vcxproj -> \\Mac\Home\Downloads\Tp5CodeDepart-2\x64\Debug\Recipes.exe
+  Recipes.vcxproj -> C:\Users\banna\Documents\teepeeFive\Tp5CodeDepart-2\x64\Debug\Recipes.exe

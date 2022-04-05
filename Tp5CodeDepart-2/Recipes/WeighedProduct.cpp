@@ -10,7 +10,7 @@ WeighedProduct::WeighedProduct(std::string name, std::string origin, int weigth,
 AbsCatalogComponent * WeighedProduct::clone(void) const 
 { 
 	// À compléter pour construire un nouvel objet WeighedProduct en appelant le constructeur de copie
-	return nullptr; // À remplacer
+	return new WeighedProduct(*this); // À remplacer
 }
 
 float WeighedProduct::getPrice() const 
@@ -32,5 +32,6 @@ int WeighedProduct::getQuantity() const
 std::ostream & WeighedProduct::printToStream(std::ostream & o) const
 {
 	// À compléter pour imprimer sur un stream un produit vendu au poids
+	o << getName() << "(from " << getOrigin() << ") $" << getPrice() << " (" << m_weight << "g)";
 	return o;
 }

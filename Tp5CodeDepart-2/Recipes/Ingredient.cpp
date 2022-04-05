@@ -18,7 +18,7 @@ Ingredient::Ingredient(std::string name, int duration, const AbsProduct& product
 Ingredient* Ingredient::clone() const
 {
 	// À compléter pour construire un nouvel objet Ingredient en appelant le constructeur de copie
-	return nullptr; // À remplacer
+	return new Ingredient(*this); // À remplacer
 }
 
 const AbsProduct& Ingredient::getProduct() const
@@ -29,6 +29,7 @@ const AbsProduct& Ingredient::getProduct() const
 std::ostream& Ingredient::printToStream(std::ostream& o) const 
 {
 	// À compléter pour imprimer sur un stream une catégorie et ses produits
+	o << m_product.getName() << " " << m_description << std::endl;
 	return o;
 }
 

@@ -16,12 +16,18 @@ Recipe::Recipe(const Recipe& mdd)
     : AbsIngredient(mdd), m_steps(mdd.m_steps)
 {
 	// À compléter pour copier tous les ingrédients contenus dans la recette
+
+	for(auto&& ingredients : mdd.m_ingredients)
+	{
+		CompositeStep(*ingredients);
+	}
+
 }
 
 Recipe* Recipe::clone() const
 {
 	// À compléter pour construire un nouvel objet Recipe en appelant le constructeur de copie
-	return nullptr; // À remplacer
+	return new Recipe(*this); // À remplacer
 }
 
 AbsRecipeComponent& Recipe::addRecipeComponent(const AbsRecipeComponent& member)
@@ -42,14 +48,18 @@ AbsRecipeComponent& Recipe::addIngredient(const AbsIngredient& ingredient)
 	// et l'insérer dans le conteneur des ingrédients. On retourne une référence à l'objet
 	// qui vient d'être inséré dans le conteneur.
 
-	return *this; // À remplacer 
+	auto ingredientCopy = ingredient.clone();
+	m_ingredients.push_back(std::unique_ptr<AbsRecipeComponent>(ingredientCopy)); // TODO: maybe a remplacer avec unique_ptr
+	return *ingredientCopy; // À remplacer 
+
 }
 
 AbsRecipeComponent& Recipe::addStep(const AbsStep& step)
 {
 	// À compléter pour déléguer aux étapes la tâche d'insérer une copie de l'étape reçue en paramètre.
 	// On retourne une référence à l'objet qui vient d'être inséré dans le conteneur.
-	return *this; // À remplacer 
+	
+	return m_steps.addRecipeComponent(step);; 
 }
 
 RecipeComponentIterator Recipe::begin(){
@@ -98,26 +108,49 @@ RecipeComponentIterator Recipe::end_step()
 void Recipe::deleteRecipeComponent(RecipeComponentIterator_const child)
 {
 	// À compléter pour éliminer de l'ingrédient auquel réfère l'itérateur
+
+	m_ingredients.erase(child);
+	
 }
 
 void Recipe::deleteIngredient(RecipeComponentIterator_const ingredient)
 {
 	// À compléter pour éliminer tous les ingrédients
+	m_ingredients.clear();
 }
 
 void Recipe::deleteStep(RecipeComponentIterator_const step)
 {
 	// À compléter pour déléguer aux étapes la tâche d'effacer l'étape à laquelle réfère l'itérateur.
+
+	m_steps.deleteRecipeComponent(step);
+
 }
 
 void Recipe::deleteAllComponents()
 {
 	// À compléter pour éliminer tous les ingrédients et déléguer aux étapes
 	// la tâche d'effacer toutes les étapes.
+
+	m_steps.deleteAllComponents();
 }
 
 std::ostream& Recipe::printToStream(std::ostream& o) const 
 {
 	// À compléter pour imprimer sur un stream une recette
+	
+	
+	o << "Recipe: " << m_description << '\n';
+
+	for (auto&& ingredient : m_ingredients)
+	{
+		m_indent++;
+		indent(o);
+		o << *ingredient << '\n';
+		m_indent--;
+	}
+	
+	o << m_steps << "\n";
+
 	return o;
 }

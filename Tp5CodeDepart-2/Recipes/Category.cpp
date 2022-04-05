@@ -85,6 +85,7 @@ std::ostream & Category::printToStream(std::ostream & o) const
 {
 	// À compléter pour imprimer sur un stream une catégorie et ses produits
 	o << "Category: "<< m_name << '\n';
+
 	for (auto&& prod : m_products)
 	{
 		m_indent++;

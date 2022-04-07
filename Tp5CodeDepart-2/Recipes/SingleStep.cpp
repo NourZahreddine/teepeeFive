@@ -21,6 +21,6 @@ SingleStep* SingleStep::clone() const
 std::ostream& SingleStep::printToStream(std::ostream& o) const 
 {
 	// À compléter pour imprimer sur un stream une étape
-	o << m_description <<"\n";
+	o << m_description <<'\n';
 	return o;
 }

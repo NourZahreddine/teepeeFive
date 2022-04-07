@@ -93,13 +93,16 @@ int CompositeStep::getDuration() const
 std::ostream& CompositeStep::printToStream(std::ostream& o) const 
 {
 	// À compléter pour imprimer sur un stream une étape et ses sous-étapes
+
 	o << m_description << '\n';
+	int i = 1;
 	for (auto& step : m_stepsContainer)
 	{
 		m_indent++;
 		indent(o);
-		o << *step;
+		o << i << " " << *step;
 		m_indent--;
+		i++;
 	}
 	return o;
 }

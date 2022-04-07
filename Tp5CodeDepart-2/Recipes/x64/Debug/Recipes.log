@@ -1,2 +1,2 @@
 ﻿  CompositeStep.cpp
-LINK : fatal error LNK1168: cannot open C:\Users\noni\Documents\GitHub\teepeeFive\Tp5CodeDepart-2\x64\Debug\Recipes.exe for writing
+  Recipes.vcxproj -> C:\Users\noni\Documents\GitHub\teepeeFive\Tp5CodeDepart-2\x64\Debug\Recipes.exe

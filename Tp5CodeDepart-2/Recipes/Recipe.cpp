@@ -139,9 +139,10 @@ std::ostream& Recipe::printToStream(std::ostream& o) const
 {
 	// À compléter pour imprimer sur un stream une recette
 	
+	o << "Recipe: " << m_description << '\n';
+	indent(o);
+	o << "Ingredients: " <<'\n';
 	
-	o << "Ingredients: " << m_description << '\n';
-
 	for (auto&& ingredient : m_ingredients)
 	{
 		m_indent++;

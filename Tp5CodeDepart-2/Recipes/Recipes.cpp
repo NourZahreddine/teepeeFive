@@ -12,6 +12,7 @@ int main()
         RecipeBook log1410Recipes("The LOG1410 Recipe Book");
 
         std::cout << "Looking for pizza in the LOG1410 Recipe Book\n";
+   
         const Recipe* pizzaPtr = log1410Recipes.findRecipe("pizza");
 
         if (pizzaPtr != nullptr)

@@ -19,7 +19,7 @@ Recipe::Recipe(const Recipe& mdd)
 
 	for(auto&& ingredients : mdd.m_ingredients)
 	{
-		CompositeStep(*ingredients);
+		addRecipeComponent(*ingredients);
 	}
 
 }
@@ -140,13 +140,13 @@ std::ostream& Recipe::printToStream(std::ostream& o) const
 	// À compléter pour imprimer sur un stream une recette
 	
 	
-	o << "Recipe: " << m_description << '\n';
+	o << "Ingredients: " << m_description << '\n';
 
 	for (auto&& ingredient : m_ingredients)
 	{
 		m_indent++;
 		indent(o);
-		o << *ingredient << '\n';
+		o << *ingredient;
 		m_indent--;
 	}
 	

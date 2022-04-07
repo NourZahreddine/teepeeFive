@@ -15,12 +15,12 @@ SingleStep::SingleStep(std::string description, int duration)
 SingleStep* SingleStep::clone() const 
 {
 	// À compléter pour construire une nouvelle étape simple en appelant le constructeur de copie
-	return new SingleStep(*this); // À remplacer
+	return new SingleStep(*this); // À remplacer 
 }
 
 std::ostream& SingleStep::printToStream(std::ostream& o) const 
 {
 	// À compléter pour imprimer sur un stream une étape
-	o << m_description << "\n";
+	o << m_description <<"\n";
 	return o;
 }

@@ -18,7 +18,7 @@ CompositeStep::CompositeStep(const CompositeStep& mdd)
 	// À compléter pour copier toutes les sous-étapes contenues dans l'étape
 	for (auto&& step : mdd.m_stepsContainer)
 	{
-		CompositeStep(*step);
+		addRecipeComponent(*step);
 	}
 }
 
@@ -93,12 +93,12 @@ int CompositeStep::getDuration() const
 std::ostream& CompositeStep::printToStream(std::ostream& o) const 
 {
 	// À compléter pour imprimer sur un stream une étape et ses sous-étapes
-	o << "Steps: " << '\n';
-	for (auto&& step : m_stepsContainer)
+	o << m_description << '\n';
+	for (auto& step : m_stepsContainer)
 	{
 		m_indent++;
 		indent(o);
-		o << *step << '\n';
+		o << *step;
 		m_indent--;
 	}
 	return o;

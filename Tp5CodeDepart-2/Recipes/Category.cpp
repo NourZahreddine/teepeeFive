@@ -71,14 +71,13 @@ const AbsProduct* Category::findProduct(std::string productName) const
 {
 	// À compléter pour itérer sur les éléments contenus dans la catégorie à la recherche d'un produit
 	// portant le nom reçu en argument. Si aucun produit n'est trouvé on retourne nullptr
-	const AbsProduct* foundProduct = nullptr;
-
-	// À compléter
-	for (auto& prod : m_products) 
-	{
-		foundProduct = prod->findProduct(productName);
+	for (auto&& product : m_products) {
+		const AbsProduct* foundProduct = product->findProduct(productName);
+		if (foundProduct != nullptr) {
+			return foundProduct;
+		}
 	}
-	return foundProduct;
+	return nullptr;
 }
 
 std::ostream & Category::printToStream(std::ostream & o) const
